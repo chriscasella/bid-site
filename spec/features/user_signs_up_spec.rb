@@ -19,4 +19,23 @@ feature "User signs up" do
     expect(page).to have_content('Welcome! You have signed up successfully.')
     expect(page).to have_content('Sign Out')
   end
+
+  scenario 'a new user incompletely fills out form' do
+    visit root_path
+
+    click_link 'Sign Up'
+
+    fill_in 'Company Name', with: ""
+    fill_in 'Primary Contact First Name', with: ""
+    fill_in 'Primary Contact Last Name', with: ""
+    fill_in "Company Website", with: "https://fakebusiness.com"
+    fill_in 'Email', with: ""
+    fill_in 'Password', with: "testtest"
+    fill_in 'Password Confirmation', with: "testtest"
+
+    click_button 'Sign Up'
+
+    expect(page).to have_content('Email can\'t be blank')
+
+  end
 end
