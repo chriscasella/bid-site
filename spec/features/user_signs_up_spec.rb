@@ -6,8 +6,10 @@ feature "User signs up" do
 
     click_link 'Sign Up'
 
-    fill_in 'First Name', with: "Chris"
-    fill_in 'Last Name', with: "Casella"
+    fill_in 'Company Name', with: "Greatest Company On Earth!"
+    fill_in 'Primary Contact First Name', with: "Chris"
+    fill_in 'Primary Contact Last Name', with: "Casella"
+    fill_in "Company Website", with: "https://fakebusiness.com"
     fill_in 'Email', with: "chris@email.com"
     fill_in 'Password', with: "testtest"
     fill_in 'Password Confirmation', with: "testtest"
