@@ -1,6 +1,6 @@
 # README
 
-![Build Status](https://codeship.com/projects/228811/status?branch=master)
+![Build Status](https://codeship.com/projects/dbaa0a80-3bf5-0135-9b5c-22aff96973e3/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/chriscasella/bid-site.png)
 ![Coverage Status](https://coveralls.io/repos/chriscasella/bid-site/badge.png)
 
