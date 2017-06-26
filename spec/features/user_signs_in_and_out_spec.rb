@@ -1,41 +1,34 @@
 require 'rails_helper'
 
 feature "User signs in" do
-  scenario 'a user signs in' do
-    visit root_path
-
-    click_link 'Sign Up'
-
-    fill_in 'Company Name', with: "Greatest Company On Earth!"
-    fill_in 'Primary Contact First Name', with: "Chris"
-    fill_in 'Primary Contact Last Name', with: "Casella"
-    fill_in "Company Website", with: "https://fakebusiness.com"
-    fill_in 'Email', with: "chris@email.com"
-    fill_in 'Password', with: "testtest"
-    fill_in 'Password Confirmation', with: "testtest"
-
-    click_button 'Sign Up'
-
-    expect(page).to have_content('Welcome! You have signed up successfully.')
-    expect(page).to have_content('Sign Out')
+  let(:user) do
+    FactoryGirl.create(:user)
   end
 
-  scenario 'a new user incompletely fills out form' do
+  scenario 'an existing user specifies a valid email and password' do
     visit root_path
+    sign_in_as(user)
+    expect(page).to have_content('Signed in successfully')
+    expect(page).to have_content('Sign Out')
 
-    click_link 'Sign Up'
+  end
 
-    fill_in 'Company Name', with: ""
-    fill_in 'Primary Contact First Name', with: ""
-    fill_in 'Primary Contact Last Name', with: ""
-    fill_in "Company Website", with: "https://fakebusiness.com"
-    fill_in 'Email', with: ""
-    fill_in 'Password', with: "testtest"
-    fill_in 'Password Confirmation', with: "testtest"
+  scenario 'a nonexistent email and password is supplied' do
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', with: 'nobody@example.com'
+    fill_in 'Password', with: 'password'
+    click_button 'Log in'
+    expect(page).to have_content('Invalid Email or password')
+    expect(page).to_not have_content('Welcome Back!')
+    expect(page).to_not have_content('Sign Out')
+  end
 
-    click_button 'Sign Up'
+  scenario "successful sign out" do
+    visit root_path
+    sign_in_as(user)
+    click_link "Sign Out"
 
-    expect(page).to have_content('Email can\'t be blank')
-
+    expect(page).to have_content "Signed out successfully"
   end
 end
