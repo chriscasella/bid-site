@@ -7,6 +7,7 @@ class AuctionList extends Compnent {
     this.state = {
       auctions: []
     }
+    this.getData = this.getData.bind(this);
   }
 
   getData() {
@@ -32,6 +33,21 @@ class AuctionList extends Compnent {
   }
 
   render () {
+
+    let currentAuctions = this.state.auctions;
+    let finalAuctions = currentAuctions.map((auction, index) => {
+    return (
+      <Auction
+        key={index}
+        id={auction.id}
+        name={auction.name}
+        url={auction.website}
+        photo={auction.photo}
+        location={auction.location}
+      />
+    )
+  });
+
     return (
 
     )
