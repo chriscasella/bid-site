@@ -23,3 +23,7 @@
 /coverage
 
 .byebug_history
+
+/node_modules
+/app/assets/javascripts/bundle.js
+/react/coverage
