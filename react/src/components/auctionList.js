@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
+import Auction from './Auction';
 
 
-class AuctionList extends Compnent {
+class AuctionList extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -11,7 +12,7 @@ class AuctionList extends Compnent {
   }
 
   getData() {
-  fetch('/api/v1/auctions.json')
+  fetch('http://localhost:3000/api/v1/auctions.json')
     .then(response => {
       if (response.ok) {
         return response;
@@ -23,7 +24,7 @@ class AuctionList extends Compnent {
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({ auctions: body["auctions"] })
+      this.setState({ auctions: body })
     })
     .catch(error => console.error(`Error in fetch ${error.message}`));
   }
@@ -33,7 +34,6 @@ class AuctionList extends Compnent {
   }
 
   render () {
-
     let currentAuctions = this.state.auctions;
     let finalAuctions = currentAuctions.map((auction, index) => {
     return (
@@ -41,15 +41,14 @@ class AuctionList extends Compnent {
         key={index}
         id={auction.id}
         name={auction.name}
-        url={auction.website}
-        photo={auction.photo}
-        location={auction.location}
       />
     )
   });
 
     return (
-
+      <Auction
+      name={"Test Auction 1"}
+      />
     )
   }
 }
