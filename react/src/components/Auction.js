@@ -6,8 +6,8 @@ class Auction extends Component {
   }
   render () {
     return (
-      <div>
-          <h1> {this.props.name} </h1>
+      <div className="callout">
+          <h3> {this.props.name} </h3>
       </div>
     )
   }
