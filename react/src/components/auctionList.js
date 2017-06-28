@@ -24,7 +24,7 @@ class AuctionList extends Component {
     })
     .then(response => response.json())
     .then(body => {
-      this.setState({ auctions: body })
+      this.setState({ auctions: body["auctions"] })
     })
     .catch(error => console.error(`Error in fetch ${error.message}`));
   }
@@ -46,9 +46,9 @@ class AuctionList extends Component {
   });
 
     return (
-      <Auction
-      name={"Test Auction 1"}
-      />
+      <div>
+        {finalAuctions}
+      </div>
     )
   }
 }

@@ -7,9 +7,7 @@ class Auction extends Component {
   render () {
     return (
       <div>
-      <a href={`/venues/${this.props.id}`}>
-        <h1> {this.props.name} </h1>
-      </a>
+          <h1> {this.props.name} </h1>
       </div>
     )
   }
