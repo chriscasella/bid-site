@@ -81,6 +81,8 @@ class AuctionList extends Component {
         key={index}
         id={auction.id + 1}
         name={auction.name}
+        start={auction.auction_start_date}
+        close={auction.auction_close_date}
       />
     )
   });

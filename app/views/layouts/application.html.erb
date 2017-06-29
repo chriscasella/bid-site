@@ -1,22 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>BidSite</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application' %>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= content_for?(:title) ? yield(:title) : "Bid Site" %></title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+      <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= link_to "Sign Up", new_user_registration_path %>
-    <% if user_signed_in? %>
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-    <% end %>
+    <nav class="top-bar">
+      <div class="top-bar-left">
+        <h1 class="menu-text">
+          <%= link_to "Home", root_path %>
+        </h1>
+        </div>
+          <ul>
+            <div class="top-bar-right">
+              <h3>
+              <% if user_signed_in? %>
+                <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+              <% end %>
 
-    <% if !user_signed_in? %>
-      <%= link_to "Sign In", new_user_session_path %>
-    <% end %>
+              <% if !user_signed_in? %>
+                <%= link_to "Sign In", new_user_session_path %>
+                <%= link_to "Sign Up", new_user_registration_path %>
+              <% end %>
+          </h3>
+          </ul>
+      </div>
+    </nav>
 
     <% flash.each do |key, value| %>
       <%= value %>
