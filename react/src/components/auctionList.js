@@ -6,10 +6,26 @@ class AuctionList extends Component {
   constructor(props){
     super(props)
     this.state = {
-      auctions: []
+      auctions: [],
+      currentPage: 1,
+      auctionsPerPage: 15,
+      search: ''
     }
     this.getData = this.getData.bind(this);
+    this.previousPage = this.previousPage.bind(this);
+   this.nextPage = this.nextPage.bind(this);
+   this.updateSearch = this.updateSearch.bind(this);
   }
+
+  previousPage () {
+    let newPage = this.state.currentPage - 1;
+   this.setState({ currentPage: newPage })
+  }
+
+  nextPage(event) {
+  let newPage = this.state.currentPage + 1;
+  this.setState({ currentPage: newPage })
+}
 
   getData() {
   fetch('http://localhost:3000/api/v1/auctions.json')
@@ -33,13 +49,37 @@ class AuctionList extends Component {
     this.getData();
   }
 
+  updateSearch(event) {
+   this.setState({ search: event.target.value.substr(0,20) })
+ }
+
   render () {
+    let indexOfLastAuction = this.state.auctions * this.state.auctionsPerPage;
+    let indexOfFirstAuction = indexOfLastAuction - this.state.auctionsPerPage;
     let currentAuctions = this.state.auctions;
+    let filtered = this.state.auctions.filter(
+       (auction) => {
+         return auction.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+         auction.location.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+       }
+   );
+
+   let previousClass = "hollow button"
+    let nextClass = "hollow button"
+    let previous = "⇦"
+    let next = "⇨"
+
+   if (indexOfFirstAuction < 0 ) {
+     currentAuctions = filtered.slice(0, 10);
+   } else {
+     currentAuctions = filtered.slice(indexOfFirstAuction, indexOfLastAuction)
+   }
+
     let finalAuctions = currentAuctions.map((auction, index) => {
     return (
       <Auction
         key={index}
-        id={auction.id}
+        id={auction.id + 1}
         name={auction.name}
         start={auction.auction_start_date}
         close={auction.auction_close_date}
@@ -49,7 +89,23 @@ class AuctionList extends Component {
 
     return (
       <div>
+        <input
+       placeholder="Search"
+       type="text"
+       value={this.state.search}
+       onChange={this.updateSearch}
+       className="searchBar"
+       />
         {finalAuctions}
+        <div className="text-center">
+          <button className={previousClass} onClick={this.previousPage}>
+            {previous}
+          </button>
+          <div id="spacer">    </div>
+          <button className={nextClass} onClick={this.nextPage}>
+            {next}
+          </button>
+        </div>
       </div>
     )
   }
