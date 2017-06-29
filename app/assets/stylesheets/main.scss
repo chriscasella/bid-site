@@ -1,0 +1,50 @@
+$base-white: #FCFFF5;
+$base-cream: #D1DBBD;
+$base-teal: #91AA9D;
+$base-blue: #3E606F;
+$base-deepblue: #193441;
+
+.top-bar {
+  background-image: linear-gradient( 0deg, $base-cream, $base-white 70%);
+  color: $base-cream;
+  padding-left: 20px;
+  padding-right:  20px;
+}
+
+.top-bar-right {
+  margin-top: 10px;
+}
+
+.call-out{
+  margin-left: 200px;
+}
+
+.index-bottom-dividers {
+  margin-left: fill;
+  margin-right: 100px;
+}
+
+.right-divider {
+  h2 {
+    text-align: center;
+  }
+  background-color: $base-blue;
+}
+.left-divider {
+  h2 {
+    text-align: center;
+  }
+  background-color: $base-teal
+}
+
+.index-body {
+  h2 {
+    text-align: center;
+  }
+
+}
+
+body{
+  font-family: 'Ubuntu', sans-serif;
+  background-color: $base-white;
+}
