@@ -57,11 +57,29 @@ class AuctionList extends Component {
     let indexOfLastAuction = this.state.auctions * this.state.auctionsPerPage;
     let indexOfFirstAuction = indexOfLastAuction - this.state.auctionsPerPage;
     let currentAuctions = this.state.auctions;
+    let filtered = this.state.auctions.filter(
+       (auction) => {
+         return auction.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
+         auction.location.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+       }
+   );
+
+   let previousClass = "hollow button"
+    let nextClass = "hollow button"
+    let previous = "⇦"
+    let next = "⇨"
+
+   if (indexOfFirstAuction < 0 ) {
+     currentAuctions = filtered.slice(0, 10);
+   } else {
+     currentAuctions = filtered.slice(indexOfFirstAuction, indexOfLastAuction)
+   }
+
     let finalAuctions = currentAuctions.map((auction, index) => {
     return (
       <Auction
         key={index}
-        id={auction.id}
+        id={auction.id + 1}
         name={auction.name}
       />
     )
@@ -69,7 +87,23 @@ class AuctionList extends Component {
 
     return (
       <div>
+        <input
+       placeholder="Search"
+       type="text"
+       value={this.state.search}
+       onChange={this.updateSearch}
+       className="searchBar"
+       />
         {finalAuctions}
+        <div className="text-center">
+          <button className={previousClass} onClick={this.previousPage}>
+            {previous}
+          </button>
+          <div id="spacer">    </div>
+          <button className={nextClass} onClick={this.nextPage}>
+            {next}
+          </button>
+        </div>
       </div>
     )
   }
