@@ -13,8 +13,8 @@ class AuctionList extends Component {
     }
     this.getData = this.getData.bind(this);
     this.previousPage = this.previousPage.bind(this);
-   this.nextPage = this.nextPage.bind(this);
-   this.updateSearch = this.updateSearch.bind(this);
+    this.nextPage = this.nextPage.bind(this);
+    this.updateSearch = this.updateSearch.bind(this);
   }
 
   previousPage () {
@@ -28,7 +28,7 @@ class AuctionList extends Component {
 }
 
   getData() {
-  fetch('http://localhost:3000/api/v1/auctions.json')
+  fetch('http://localhost:3000/api/v1/auctions.json',{method: 'get'})
     .then(response => {
       if (response.ok) {
         return response;
@@ -54,9 +54,9 @@ class AuctionList extends Component {
  }
 
   render () {
-    let indexOfLastAuction = this.state.auctions * this.state.auctionsPerPage;
+    let indexOfLastAuction = this.state.currentPage * this.state.auctionsPerPage;
     let indexOfFirstAuction = indexOfLastAuction - this.state.auctionsPerPage;
-    let currentAuctions = this.state.auctions;
+    let currentAuctions;
     let filtered = this.state.auctions.filter(
        (auction) => {
          return auction.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ||
@@ -96,12 +96,19 @@ class AuctionList extends Component {
        onChange={this.updateSearch}
        className="searchBar"
        />
-        {finalAuctions}
+
+     <div className="row">
+
+         {finalAuctions}
+
+     </div>
+
+
+
         <div className="text-center">
           <button className={previousClass} onClick={this.previousPage}>
             {previous}
           </button>
-          <div id="spacer">    </div>
           <button className={nextClass} onClick={this.nextPage}>
             {next}
           </button>
