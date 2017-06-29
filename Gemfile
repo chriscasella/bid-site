@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'jquery-rails'
+
 gem 'dotenv-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
@@ -43,6 +45,7 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'rspec-rails'
   gem 'factory_girl'
+  gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem 'simplecov'
 end
