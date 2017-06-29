@@ -6,7 +6,7 @@ class Auction extends Component {
   }
   render () {
     return (
-      <div>
+      <div className="small-10 columns">
           <h1> {this.props.name} </h1>
       </div>
     )
