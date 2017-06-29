@@ -45,7 +45,8 @@ group :development, :test do
   gem 'coveralls', require: false
   gem 'rspec-rails'
   gem 'factory_girl'
-  gem 'shoulda-matchers'
+  gem 'valid_attribute'
+  gem 'shoulda-matchers', require: false
   gem 'simplecov'
 end
 
