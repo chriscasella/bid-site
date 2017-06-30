@@ -20,6 +20,4 @@ feature "users can view a show page" do
     expect(page).to have_content auction1.auction_close_date
   end
 
-  scenario "Users can't see"
-
 end
