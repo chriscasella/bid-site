@@ -6,7 +6,14 @@ class AuctionsController < ApplicationController
 
   def create
     @auction = Auction.new(auction_params)
-    @auction.user
+    @auction.auction_start_date = Time.now
+
+    if @auction.save
+      flash[:notice] = "Auction Successfully Created"
+      redirect_to root_path
+    else
+      flash[:notice] = @auction.errors.full_messages.to_sentence
+    end
   end
 
   def index
@@ -20,7 +27,7 @@ class AuctionsController < ApplicationController
   private
 
   def auction_params
-    params.require(:auction).permit(:name, :location, :description, :workforce_size, :project_length)
+    params.require(:auction).permit(:name, :location, :description, :workforce_size, :project_length, :auction_close_date)
   end
 
 end

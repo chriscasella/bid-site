@@ -6,17 +6,17 @@
   <%= f.label :location, "Location for Auction" %>
   <%= f.text_field :location %>
 
+  <%= f.label :description, "Description of Auction" %>
+  <%= f.text_area :description %>
+
   <%= f.label :workforce_size, "Estimated Workforce Required" %>
   <%= f.text_field :workforce_size %>
 
   <%= f.label :project_length, "Expected Duration of Project" %>
   <%= f.text_field :project_length %>
 
-  <%= f.label :project_length, "Expected Duration of Project" %>
-  <%= f.text_field :project_length %>
-
   <%= f.label :auction_close_date, "Length of Auction" %>
-  <%= f.select (:auction, :auction_close_date, [['1 Week', 1], ['2 Weeks', 2], ['1 Month', 3], ['2 Months', 4], ['3 Months', 5]] )%>
+  <%= f.select :auction_close_date, options_for_select([['1 Week', Time.now + 7.day], ['2 Weeks', Time.now + 14.day], ['1 Month', Time.now + 30.day], ['2 Months', Time.now + 60.day], ['3 Months', Time.now + 90.day]])%>
 
   <%= f.submit "Create Auction" %>
 
