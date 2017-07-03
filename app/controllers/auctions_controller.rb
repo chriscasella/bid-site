@@ -9,9 +9,9 @@ class AuctionsController < ApplicationController
     @auction = Auction.new(auction_params)
     @auction.auction_start_date = Time.now
     @auction.user = current_user
-
     if @auction.save
       flash[:notice] = "Auction Successfully Created"
+      UserMailer.new_auction(@auction).deliver_now
       redirect_to root_path
     else
       flash[:notice] = @auction.errors.full_messages.to_sentence
