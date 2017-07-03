@@ -16,10 +16,19 @@ end
   scenario "Bidder bids on auction" do
     sign_in_as(user)
     visit auction_path(auction)
-    click_link "Submit Bid"
-    fill_in "Quote Price"
+    click_link "Submit New Bid"
+    fill_in "Quote Price", with: 123
     click_button "Submit Bid"
 
     expect(page).to have_content("Bid Submitted")
+  end
+
+  scenario "Bidder does submits incomplete bid" do
+    sign_in_as(user)
+    visit auction_path(auction)
+    click_link "Submit New Bid"
+    click_button "Submit Bid"
+
+    expect(page).to have_content("Bid quote can't be blank and Bid quote is not a number")
   end
 end

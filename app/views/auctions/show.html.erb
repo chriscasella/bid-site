@@ -3,3 +3,5 @@ Location: <%= @auction.location %>
 Description: <%= @auction.description %>
 Start Date: <%= @auction.auction_start_date %>
 Close Date: <%= @auction.auction_close_date %>
+
+<%= link_to "Submit New Bid", new_auction_bid_path(@auction) %>
