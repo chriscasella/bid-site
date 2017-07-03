@@ -8,7 +8,7 @@ class Auction extends Component {
     return (
       <div className="callout">
         <div className="row">
-          <a href={`/auctions/${this.props.id}`}>
+          <a href={`/auctions/${this.props.id - 1}`}>
             <h3>{this.props.name}</h3>
           </a>
             <div className="small-3 columns">

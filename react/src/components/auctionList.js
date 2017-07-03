@@ -50,7 +50,7 @@ class AuctionList extends Component {
   }
 
   updateSearch(event) {
-   this.setState({ search: event.target.value.substr(0,20) })
+   this.setState({ search: event.target.value.substr(0,50) })
  }
 
   render () {
@@ -98,9 +98,7 @@ class AuctionList extends Component {
        />
 
      <div className="row">
-
          {finalAuctions}
-
      </div>
 
 
