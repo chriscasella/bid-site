@@ -23,8 +23,7 @@ ActiveRecord::Schema.define(version: 20170703153550) do
     t.date "auction_start_date", null: false
     t.date "auction_close_date", null: false
     t.string "description", default: "", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_auctions_on_user_id"
+    t.integer "user_id"
   end
 
   create_table "bids", force: :cascade do |t|

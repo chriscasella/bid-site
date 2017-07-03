@@ -11,6 +11,7 @@ class BidsController < ApplicationController
   end
 
   def new
+    binding.pry
     @auction = Auction.find(params[:auction_id])
     @bid = Bid.new
   end

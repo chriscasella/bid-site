@@ -2,6 +2,7 @@ class AuctionsController < ApplicationController
 
   def new
     @auction = Auction.new
+    @auction.user_id = current_user
   end
 
   def create
@@ -24,13 +25,12 @@ class AuctionsController < ApplicationController
   def show
     @auction = Auction.find(params[:id])
     @bid = @auction.bids
-    binding.pry
   end
 
   private
 
   def auction_params
-    params.require(:auction).permit(:name, :location, :description, :workforce_size, :project_length, :auction_close_date)
+    params.require(:auction).permit(:name, :location, :description, :workforce_size, :project_length, :auction_close_date, :user)
   end
 
 end
