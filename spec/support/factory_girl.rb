@@ -10,4 +10,14 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
   end
+
+  factory :bidder do
+    sequence(:email) {|n| "user#{n}@example.com" }
+    company_name 'Ebb and Flow'
+    contact_first_name 'Alan'
+    contact_last_name 'Watts'
+    company_website 'www.FreeYourself.com'
+    password 'password'
+    password_confirmation 'password'
+  end
 end
