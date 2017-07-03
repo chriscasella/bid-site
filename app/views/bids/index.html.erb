@@ -1,0 +1,9 @@
+<ul>
+<% if !@bid.empty? %>
+  <% @bid.each do |bid| %>
+  <li> Bid #<%=bid.index %>, Quote Price:<%= bid.bid_quote %> </li>
+  <% end %>
+  <% else %>
+  <p> You have no bids yet! </p>
+<% end %>
+</ul>
