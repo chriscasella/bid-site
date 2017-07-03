@@ -1,34 +1,32 @@
-# require 'rails_helper'
-#  # has not been touched, working on other issues.
-# # feature "User views bids" do
-#   let(:user) do
-#     FactoryGirl.create(:user)
-#   end
-#
-#   # scenario 'an existing user specifies a valid email and password' do
-#     visit root_path
-#     sign_in_as(user)
-#     expect(page).to have_content('Signed in successfully')
-#     expect(page).to have_content('Sign Out')
-#
-#   end
-#
-#   # scenario 'a nonexistent email and password is supplied' do
-#     visit root_path
-#     click_link 'Sign In'
-#     fill_in 'Email', with: 'nobody@example.com'
-#     fill_in 'Password', with: 'password'
-#     click_button 'Log in'
-#     expect(page).to have_content('Invalid Email or password')
-#     expect(page).to_not have_content('Welcome Back!')
-#     expect(page).to_not have_content('Sign Out')
-#   end
-#
-#   # scenario "successful sign out" do
-#     visit root_path
-#     sign_in_as(user)
-#     click_link "Sign Out"
-#
-#     expect(page).to have_content "Signed out successfully"
-#   end
-# end
+require 'rails_helper'
+
+feature "User views bids" do
+  let(:user) do
+    FactoryGirl.create(:user)
+  end
+  let(:user1) do
+    FactoryGirl.create(:user1)
+  end
+  let(:auction) do
+    Auction.create(
+    name: "Test Auction",
+    location: "Philadelphia, PA",
+    auction_start_date: Time.now,
+    auction_close_date: Time.now + 7.day,
+    description: "Great auction!",
+    user_id: user.id
+    )
+  end
+
+  scenario 'Auction owner views bids' do
+    sign_in_as(user1)
+    visit auction_path(auction)
+    click_link "Submit New Bid"
+    fill_in "Quote Price", with: 30000
+    click_button "Submit Bid"
+
+    expect(page).to have_content('Bid Submitted Successfully')
+    expect(page).to have_content('Sign Out')
+
+  end
+end
