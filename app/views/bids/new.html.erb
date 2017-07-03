@@ -1,0 +1,7 @@
+<%= form_for [@auction, @bid] do |f| %>
+  <%= f.label :bid_quote, "Quote Price" %>
+  <%= f.number_field :bid_quote %>
+
+  <%= f.submit "Submit Bid" %>
+
+<% end %>
