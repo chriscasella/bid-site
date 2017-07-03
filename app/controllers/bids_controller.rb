@@ -27,6 +27,16 @@ class BidsController < ApplicationController
     end
   end
 
+  def update
+    @auction = Auction.find(params[:auction_id])
+    @bid = @auction.bids
+    if @bid.update(bid_params)
+      flash[:notice] = "Winning Bid Selected"
+      redirect_to auction_bids_path(@auction, @bid)
+    else
+      flash[:notice] = "Error"
+    end
+  end
   private
 
   def bid_params
