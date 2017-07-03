@@ -7,8 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Auction.destroy_all
-auction1 = Auction.create(name: "Auction Title 1", location: "Philadelpia, PA", auction_start_date: Time.now, auction_close_date: Time.now)
-auction2 = Auction.create(name: "Auction Title 2", location: "Philadelpia, PA", auction_start_date: Time.now, auction_close_date: Time.now)
-auction3 = Auction.create(name: "Auction Title 3", location: "Philadelpia, PA", auction_start_date: Time.now, auction_close_date: Time.now)
-auction4 = Auction.create(name: "Auction Title 4", location: "Philadelpia, PA", auction_start_date: Time.now, auction_close_date: Time.now)
-auction5 = Auction.create(name: "Auction Title 5", location: "Philadelpia, PA", auction_start_date: Time.now, auction_close_date: Time.now)
+
+user1 = User.create(company_name: "Test User", contact_first_name: "Alan", contact_last_name: "Watts", email: "test@test.com", password: "password")
+auction1 = Auction.create(name: "Auction Title 1", location: "Philadelpia, PA", auction_start_date: Time.now, auction_close_date: Time.now, user_id: 6)
+auction2 = Auction.create(name: "Auction Title 2", location: "Philadelpia, PA", auction_start_date: Time.now, auction_close_date: Time.now, user_id: 6)
+auction3 = Auction.create(name: "Auction Title 3", location: "Philadelpia, PA", auction_start_date: Time.now, auction_close_date: Time.now, user_id: 6)
+auction4 = Auction.create(name: "Auction Title 4", location: "Philadelpia, PA", auction_start_date: Time.now, auction_close_date: Time.now, user_id: 6)
+auction5 = Auction.create(name: "Auction Title 5", location: "Philadelpia, PA", auction_start_date: Time.now, auction_close_date: Time.now, user_id: 7)

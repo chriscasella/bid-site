@@ -3,5 +3,8 @@ Location: <%= @auction.location %>
 Description: <%= @auction.description %>
 Start Date: <%= @auction.auction_start_date %>
 Close Date: <%= @auction.auction_close_date %>
-
-<%= link_to "Submit New Bid", new_auction_bid_path(@auction) %>
+<% if current_user == @auction.user %>
+  <%= link_to "View Bids", auction_bids_path(@auction) %>
+  <% else %>  
+  <%= link_to "Submit New Bid", new_auction_bid_path(@auction) %>
+<% end %>

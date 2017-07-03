@@ -1,5 +1,10 @@
 class BidsController < ApplicationController
 
+  def index
+    @auction = Auction.find(params[:auction_id])
+    @bid = @auction.bids
+  end
+
   def new
     @auction = Auction.find(params[:auction_id])
     @bid = Bid.new

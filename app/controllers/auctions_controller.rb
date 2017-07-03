@@ -2,11 +2,13 @@ class AuctionsController < ApplicationController
 
   def new
     @auction = Auction.new
+    @auction.user_id = current_user
   end
 
   def create
     @auction = Auction.new(auction_params)
     @auction.auction_start_date = Time.now
+    @auction.user = current_user
 
     if @auction.save
       flash[:notice] = "Auction Successfully Created"
@@ -23,12 +25,13 @@ class AuctionsController < ApplicationController
 
   def show
     @auction = Auction.find(params[:id])
+    @bid = @auction.bids
   end
 
   private
 
   def auction_params
-    params.require(:auction).permit(:name, :location, :description, :workforce_size, :project_length, :auction_close_date)
+    params.require(:auction).permit(:name, :location, :description, :workforce_size, :project_length, :auction_close_date, :user)
   end
 
 end
