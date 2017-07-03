@@ -20,4 +20,13 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
   end
+
+  factory :auction do
+    name 'Test Auction'
+    location 'Philly'
+    project_length '2 months'
+    workforce_size 30
+    auction_start_date Time.now
+    auction_close_date Time.now
+  end
 end
