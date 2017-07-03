@@ -1,5 +1,6 @@
 class Auction < ApplicationRecord
-  has_many :users
+  belongs_to :user
+  has_many :bids
 
   validates :name, presence: true
   validates :location, presence: true

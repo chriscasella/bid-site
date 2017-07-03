@@ -1,5 +1,15 @@
 class BidsController < ApplicationController
 
+  def index
+    @bid = Bid.find(params[:id])
+    @auction = Auction.find(params[:auction_id])
+    # if @auction.user == current_user
+    #   else
+    #     flash[:notice] = "You do not have permission to view bids"
+    #     redirect_to  auction_path(@auction)
+    # end
+  end
+
   def new
     @auction = Auction.find(params[:auction_id])
     @bid = Bid.new

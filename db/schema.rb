@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170703032140) do
+ActiveRecord::Schema.define(version: 20170703153550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20170703032140) do
     t.date "auction_start_date", null: false
     t.date "auction_close_date", null: false
     t.string "description", default: "", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_auctions_on_user_id"
   end
 
   create_table "bids", force: :cascade do |t|
