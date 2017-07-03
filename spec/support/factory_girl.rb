@@ -11,8 +11,8 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
-  factory :bidder do
-    sequence(:email) {|n| "user#{n}@example.com" }
+  factory :user1, class: User do
+    sequence(:email) {|n| "user#{n}@eeexample.com" }
     company_name 'Ebb and Flow'
     contact_first_name 'Alan'
     contact_last_name 'Watts'

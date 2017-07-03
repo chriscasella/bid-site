@@ -48,6 +48,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem 'simplecov'
+  gem 'launchy'
 end
 
 group :development do
