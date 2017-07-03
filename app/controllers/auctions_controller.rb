@@ -8,6 +8,7 @@ class AuctionsController < ApplicationController
   def create
     @auction = Auction.new(auction_params)
     @auction.auction_start_date = Time.now
+    @auction.user = current_user
 
     if @auction.save
       flash[:notice] = "Auction Successfully Created"
