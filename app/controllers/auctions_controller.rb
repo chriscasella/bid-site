@@ -13,6 +13,7 @@ class AuctionsController < ApplicationController
       redirect_to root_path
     else
       flash[:notice] = @auction.errors.full_messages.to_sentence
+      redirect_to new_auction_path
     end
   end
 
