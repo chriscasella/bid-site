@@ -16,7 +16,6 @@ $base-deepblue: #193441;
 }
 
 .call-out{
-  margin-left: 200px;
 }
 
 #bid-show {
@@ -26,6 +25,15 @@ $base-deepblue: #193441;
 .index-bottom-dividers {
   margin-left: fill;
   margin-right: 100px;
+}
+// Auction Index
+
+.index-body {
+  padding-left: 115px;
+  h2 {
+    font-family: "Ubuntu", sans-serif;
+    color: red;
+  }
 }
 
 .right-divider {
@@ -48,6 +56,12 @@ $base-deepblue: #193441;
 
 }
 
+#auction-index {
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+// Flash
 .flash {
   padding: 10px 10px 10px 10px;
   background-color: $base-teal;
@@ -66,8 +80,4 @@ $base-deepblue: #193441;
 body{
   font-family: 'Ubuntu', sans-serif;
   background-color: $base-white;
-}
-
-#auction-index {
-  text-align: center;
 }
