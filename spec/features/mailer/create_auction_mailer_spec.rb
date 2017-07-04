@@ -7,7 +7,7 @@ feature "User recieves mail upon auction creation" do
     ActionMailer::Base.perform_deliveries = true
     ActionMailer::Base.deliveries = []
   end
-scenario "review a product" do
+xscenario "review a product" do
 
   sign_in_as(user)
   visit new_auction_path
