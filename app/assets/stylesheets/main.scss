@@ -48,6 +48,21 @@ $base-deepblue: #193441;
 
 }
 
+.flash {
+  padding: 10px 10px 10px 10px;
+  background-color: $base-teal;
+  color: $base-deepblue;
+  text-align: center;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-name: winningbid;
+  animation-duration: 4s;
+}
+@-webkit-keyframes winningbid {
+    from {background-color: #91AA9D;}
+    to {background-color: #3E606F;}
+}
+
 body{
   font-family: 'Ubuntu', sans-serif;
   background-color: $base-white;

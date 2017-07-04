@@ -33,10 +33,11 @@
           </ul>
       </div>
     </nav>
-    <% flash.each do |key, value| %>
-      <%= value %>
-    <% end %>
-
+      <% flash.each do |key, value| %>
+      <div class="flash">
+        <%= value %>
+      </div>
+      <% end %>
     <%= yield %>
   </body>
 </html>
