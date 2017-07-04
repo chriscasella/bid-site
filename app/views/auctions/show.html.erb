@@ -24,9 +24,9 @@
     <div class="small-7 columns">
       <br>
     <% if current_user == @auction.user %>
-      <%= link_to "View Bids", auction_bids_path(@auction) %>
+      <%= link_to "View Bids", auction_bids_path(@auction), class: "button round"%>
       <% else %>
-      <%= link_to "Submit New Bid", new_auction_bid_path(@auction) %>
+      <%= link_to "Submit New Bid", new_auction_bid_path(@auction), class: "button round" %>
     <% end %>
     </div>
   </div>

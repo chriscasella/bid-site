@@ -1,8 +1,8 @@
 <ul>
 <% if !@bid.empty? %>
   <% @bid.each do |bid| %>
-  <li>Quote Price:<%= bid.bid_quote %> </li>
-  <%= button_to "Winning Bid", auction_bid_path(@auction.id, bid.id, bid: {winning_bid: true}), method: :put %>
+  Quote Price:<%= bid.bid_quote %>
+  <%= button_to "Winning Bid", auction_bid_path(@auction.id, bid.id, bid: {winning_bid: true}), method: :put, class: "button round" %>
   <% end %>
   <% else %>
   <p> You have no bids yet! </p>
