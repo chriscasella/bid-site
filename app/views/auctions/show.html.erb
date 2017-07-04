@@ -1,30 +1,39 @@
 <div class="callout" >
   <div class="row">
-    <div class="small-10 columns">
-    <h3>  Name: <%= @auction.name %> </h1>
+    <div class="small-3 small-centered columns">
+      <h3>  <%= @auction.name %> </h3>
     </div>
-    Location: <%= @auction.location %>
-  <div class="small-10 columns">
-    Description: <%= @auction.description %>
+    <div class="small-10 columns">
+      <hr>
+      <h3> Location: <%= @auction.location %> </h3>
+    </div>
+    <div class="small-10 columns">
+      <h4> Description: <%= @auction.description %> </h4>
+    </div>
+    <% if !@auction.workforce_size.nil? %>
+    <div class="small-10 columns">
+      <h4> Workforce Size: <%= @auction.workforce_size %> </h4>
+    </div>
+    <% end %>
+    <div class="small-10 columns">
+      <h4>  Auction Opened: <%= @auction.auction_start_date %> </h4>
+    </div>
+    <div class="small-10 columns">
+      <h4> Auction Close: <%= @auction.auction_close_date %> </h4>
+    </div>
+    <div class="small-7 columns">
+      <br>
+    <% if current_user == @auction.user %>
+      <%= link_to "View Bids", auction_bids_path(@auction) %>
+      <% else %>
+      <%= link_to "Submit New Bid", new_auction_bid_path(@auction) %>
+    <% end %>
+    </div>
   </div>
-  <% if !@auction.workforce_size.nil? %>
-  Workforce Size: <%= @auction.workforce_size %>
-  <% end %>
-  Start Date: <%= @auction.auction_start_date %>
-  Close Date: <%= @auction.auction_close_date %>
-  <div class="small-10 columns">
-    <br>
-  <% if current_user == @auction.user %>
-    <%= link_to "View Bids", auction_bids_path(@auction) %>
-    <% else %>
-    <%= link_to "Submit New Bid", new_auction_bid_path(@auction) %>
-  <% end %>
-  </div>
-</div>
   <br>
 </div>
   <div class="row">
-    <div class="icon-bar five-up">
+    <div class="small-6 small-centered columns">
       <ul class="rrssb-buttons clearfix">
         <li class="rrssb-email">
           <!-- Replace subject with your message using URL Encoding: http://meyerweb.com/eric/tools/dencoder/ -->
@@ -75,3 +84,4 @@
       </ul>
     </div>
   </div>
+</div>
