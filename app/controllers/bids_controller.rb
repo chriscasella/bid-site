@@ -34,7 +34,7 @@ class BidsController < ApplicationController
     @bid = @auction.bids
     if @bid.update(bid_params)
       flash[:notice] = "Winning Bid Selected"
-      redirect_to auction_bids_path(@auction, @bid)
+      redirect_to new_auction_bid_path(@auction)
     else
       flash[:notice] = "Error"
     end
