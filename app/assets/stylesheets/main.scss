@@ -4,6 +4,7 @@ $base-teal: #91AA9D;
 $base-blue: #3E606F;
 $base-deepblue: #193441;
 
+// Navbar
 .top-bar {
   background-image: linear-gradient( 0deg, $base-cream, $base-white 70%);
   color: $base-cream;
@@ -25,12 +26,12 @@ $base-deepblue: #193441;
 #bid-show {
   text-align: center;
 }
+// Auction Index
 
 .index-bottom-dividers {
   margin-left: fill;
   margin-right: 100px;
 }
-// Auction Index
 
 .index-body {
   padding-left: 115px;

@@ -1,4 +1,6 @@
 <%= form_for @auction do |f| %>
+<div class="row">
+  <div class="medium-6 columns medium-centered">
 
   <%= f.label :name, "Name of Auction" %>
   <%= f.text_field :name %>
@@ -20,4 +22,6 @@
 
   <%= f.submit "Create Auction" %>
 
+</div>
+</div>
 <% end %>
