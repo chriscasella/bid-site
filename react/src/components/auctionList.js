@@ -28,7 +28,7 @@ class AuctionList extends Component {
 }
 
   getData() {
-  fetch('https://open-bid.herokuapp.com/api/v1/auctions.json',{method: 'get'})
+  fetch('/api/v1/auctions.json',{method: 'get'})
     .then(response => {
       if (response.ok) {
         return response;
