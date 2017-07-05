@@ -5,7 +5,7 @@
       <% if !@bid.empty? %>
         <% @bid.each do |bid| %>
         <h4> Quote Price: <%= bid.bid_quote %> </h4>
-        <%= button_to "Winning Bid", auction_bid_path(@auction.id, bid.id, bid: {winning_bid: true}), method: :put, class: "button alert" %>
+        <%= button_to "Winning Bid", auction_bid_select_winner_path(@auction, bid.id), method: :put, class: "button alert" %>
         <hr>
         <% end %>
         <% else %>

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "auctions#index"
   resources :auctions do
-    resources :bids
+    resources :bids do
+      put :select_winner
+    end
   end
 
   namespace :api do

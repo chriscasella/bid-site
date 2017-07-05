@@ -33,14 +33,26 @@ class BidsController < ApplicationController
     if @bid.update(bid_params)
       flash[:notice] = "Winning Bid Selected"
       redirect_to auction_bids_path(@auction, @bid)
+      binding.pry
     else
       flash[:notice] = "Error"
     end
   end
+
+  def select_winner
+    @auction = Auction.find(params[:auction_id])
+    @bid = @auction.bids
+    @bid.update(:winning_bid => true)
+    binding.pry
+    flash[:notice] = "Winning Bid Selected"
+    redirect_to auction_bids_path(@auction, @bid)
+
+  end
+
   private
 
   def bid_params
-    params.require(:bid).permit(:bid_quote)
+    params.require(:bid).permit(:bid_quote, :winning_bid)
   end
 
 end
