@@ -3,10 +3,18 @@
     <div class="small-6 small-centered columns" id="bid-show">
       <ul>
       <% if !@bid.empty? %>
+        <% counter = 0 %>
         <% @bid.each do |bid| %>
-          <h4> Quote Price: <%= bid.bid_quote %> </h4>
-          <%= button_to "Winning Bid", auction_bid_select_winner_path(@auction, bid.id), method: :put, class: "button alert" %>
-          <hr>
+          <% if bid.winning_bid == true %>
+            <h2> Winning Quote: $<%= bid.bid_quote %> </h2>
+              An email has been sent to <%= current_user.email %> to contact winning party
+              <% counter = counter + 1 %>
+          <% elsif bid.winning_bid == false && counter < 0 %>
+            <h4> Quote Price: <%= bid.bid_quote %> </h4>
+            <%= button_to "Select Winner", auction_bid_select_winner_path(@auction, bid.id), method: :put, class: "button alert" %>
+            <hr>
+
+            <% end %>
           <% end %>
         <% else %>
         <p> You have no bids yet! </p>

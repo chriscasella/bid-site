@@ -46,7 +46,6 @@ class BidsController < ApplicationController
     binding.pry
     flash[:notice] = "Winning Bid Selected"
     redirect_to auction_path(@auction)
-
   end
 
   private
