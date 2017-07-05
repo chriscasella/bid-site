@@ -33,7 +33,6 @@ class BidsController < ApplicationController
     if @bid.update(bid_params)
       flash[:notice] = "Winning Bid Selected"
       redirect_to auction_bids_path(@auction, @bid)
-      binding.pry
     else
       flash[:notice] = "Error"
     end
@@ -43,7 +42,6 @@ class BidsController < ApplicationController
     @auction = Auction.find(params[:auction_id])
     @bid = Bid.find(params[:bid_id])
     @bid.update(:winning_bid => true)
-    binding.pry
     flash[:notice] = "Winning Bid Selected"
     redirect_to auction_path(@auction)
   end
