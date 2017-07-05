@@ -3,6 +3,8 @@ class BidsController < ApplicationController
   def index
     @auction = Auction.find(params[:auction_id])
     @bid = @auction.bids
+    @winner = @bid.where(winning_bid: :true)
+    @winner = @winner[0]
   end
 
   def new
@@ -32,15 +34,24 @@ class BidsController < ApplicationController
     @bid = @auction.bids
     if @bid.update(bid_params)
       flash[:notice] = "Winning Bid Selected"
-      redirect_to auction_bids_path(@auction, @bid)
+      redirect_to new_auction_bid_path(@auction)
     else
       flash[:notice] = "Error"
     end
   end
+
+  def select_winner
+    @auction = Auction.find(params[:auction_id])
+    @bid = Bid.find(params[:bid_id])
+    @bid.update(:winning_bid => true)
+    flash[:notice] = "Winning Bid Selected"
+    redirect_to auction_path(@auction)
+  end
+
   private
 
   def bid_params
-    params.require(:bid).permit(:bid_quote)
+    params.require(:bid).permit(:bid_quote, :winning_bid)
   end
 
 end
