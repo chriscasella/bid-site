@@ -41,11 +41,11 @@ class BidsController < ApplicationController
 
   def select_winner
     @auction = Auction.find(params[:auction_id])
-    @bid = @auction.bids
+    @bid = Bid.find(params[:bid_id])
     @bid.update(:winning_bid => true)
     binding.pry
     flash[:notice] = "Winning Bid Selected"
-    redirect_to auction_bids_path(@auction, @bid)
+    redirect_to auction_path(@auction)
 
   end
 
