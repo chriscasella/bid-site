@@ -17,5 +17,5 @@ auction2 = Auction.create(name: "Camden BOE Lead Paint Survey", location: "Camde
 auction3 = Auction.create(name: "Hazardous Materials Remediation and Disposal", location: "Kearny, NJ", auction_start_date: Time.now, auction_close_date: Time.now, user_id: 6)
 auction4 = Auction.create(name: "Federal Wildlife National Refuge Soil Investigation", location: "Littel Egg Harbor, NJ", auction_start_date: Time.now, auction_close_date: Time.now, user_id: 6)
 auction5 = Auction.create(name: "Phase I Site Assessment", location: "Easton, PA", auction_start_date: Time.now, auction_close_date: Time.now, user_id: 7)
-bid1 = Bid.create(user_id: user3.id, auction_id: auction1.id, bid_quote: 30000, winning_bid: false)
-bid2 = Bid.create(user_id: user2.id, auction_id: auction1.id, bid_quote: 50000, winning_bid: false)
+bid1 = Bid.create(user_id: 10, auction_id: auction1.auction_id, bid_quote: 30000, winning_bid: false)
+bid2 = Bid.create(user_id: 11, auction_id: auction1.auction_id, bid_quote: 50000, winning_bid: false)

@@ -3,6 +3,8 @@ class BidsController < ApplicationController
   def index
     @auction = Auction.find(params[:auction_id])
     @bid = @auction.bids
+    @winner = @bid.where(winning_bid: :true)
+    @winner = @winner[0]
   end
 
   def new
