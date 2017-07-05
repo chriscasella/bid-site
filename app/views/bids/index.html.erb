@@ -1,10 +1,17 @@
-<ul>
-<% if !@bid.empty? %>
-  <% @bid.each do |bid| %>
-  <li>Quote Price:<%= bid.bid_quote %> </li>
-  <%= button_to "Winning Bid", auction_bid_path(@auction.id, bid.id, bid: {winning_bid: true}), method: :put %>
-  <% end %>
-  <% else %>
-  <p> You have no bids yet! </p>
-<% end %>
-</ul>
+<div class="callout">
+  <div class="row">
+    <div class="small-6 small-centered columns" id="bid-show">
+      <ul>
+      <% if !@bid.empty? %>
+        <% @bid.each do |bid| %>
+        <h4> Quote Price: <%= bid.bid_quote %> </h4>
+        <%= button_to "Winning Bid", auction_bid_path(@auction.id, bid.id, bid: {winning_bid: true}), method: :put, class: "button alert" %>
+        <hr>
+        <% end %>
+        <% else %>
+        <p> You have no bids yet! </p>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

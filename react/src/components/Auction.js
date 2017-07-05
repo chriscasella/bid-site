@@ -7,18 +7,23 @@ class Auction extends Component {
   render () {
     return (
       <div className="callout">
-        <div className="row">
+        <div className="row" id="auction-index">
           <a href={`/auctions/${this.props.id - 1}`}>
             <h3>{this.props.name}</h3>
           </a>
-            <div className="small-3 columns">
-              <h6>Start Date: {this.props.start}</h6>
+          <div>
+            <h4> Location: {this.props.location}</h4>
+          </div>
+          <div className="row">
+            <div className="small-6 columns">
+              <h5>Start Date: {this.props.start}</h5>
             </div>
-            <div className="small-9 columns">
-              <h6>
+            <div className="small-6 columns">
+              <h5>
                 Close Date: {this.props.close}
-              </h6>
+              </h5>
             </div>
+          </div>
         </div>
       </div>
     )
