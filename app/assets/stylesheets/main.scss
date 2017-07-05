@@ -9,6 +9,10 @@ $base-deepblue: #193441;
   color: $base-cream;
   padding-left: 20px;
   padding-right:  20px;
+  .nav-logo {
+    font-family: "Ubuntu", sans-serif;
+    letter-spacing: -.1em;
+  }
 }
 
 .top-bar-right {
