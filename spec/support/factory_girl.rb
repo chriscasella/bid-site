@@ -28,5 +28,10 @@ FactoryGirl.define do
     workforce_size 30
     auction_start_date Time.now
     auction_close_date Time.now
+    description 'this is a test!'
+  end
+
+  factory :bid do
+    bid_quote 30000
   end
 end

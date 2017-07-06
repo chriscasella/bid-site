@@ -22,6 +22,7 @@ class BidsController < ApplicationController
 
     if @bid.save
       flash[:notice] = "Bid Submitted Successfully"
+      UserMailer.new_bid(@auction, @bid).deliver_now
       redirect_to auction_path(@auction)
     else
       flash[:notice] = @bid.errors.full_messages.to_sentence
@@ -45,6 +46,8 @@ class BidsController < ApplicationController
     @bid = Bid.find(params[:bid_id])
     @bid.update(:winning_bid => true)
     flash[:notice] = "Winning Bid Selected"
+    UserMailer.winning_bid_selected(@auction, @bid).deliver_now
+    UserMailer.winning_bid_selector(@auction, @bid).deliver_now
     redirect_to auction_path(@auction)
   end
 
