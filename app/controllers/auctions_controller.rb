@@ -12,6 +12,7 @@ class AuctionsController < ApplicationController
 
     if @auction.save
       flash[:notice] = "Auction Successfully Created"
+      UserMailer.new_auction(@auction).deliver_now
       redirect_to root_path
     else
       flash[:notice] = @auction.errors.full_messages.to_sentence
