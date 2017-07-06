@@ -20,3 +20,4 @@ auction4 = Auction.create(name: "Federal Wildlife National Refuge Soil Investiga
 auction5 = Auction.create(name: "Phase I Site Assessment", location: "Easton, PA", auction_start_date: Time.now, auction_close_date: Time.now, user: user2)
 bid1 = Bid.create(user: user1, auction: auction1, bid_quote: 30000, winning_bid: false)
 bid2 = Bid.create(user: user3, auction: auction1, bid_quote: 50000, winning_bid: false)
+bid2 = Bid.create(user: user3, auction: auction1, bid_quote: 20000, winning_bid: false)

@@ -2,8 +2,9 @@ class BidsController < ApplicationController
 
   def index
     @auction = Auction.find(params[:auction_id])
-    @bid = @auction.bids
-    @winner = @bid.where(winning_bid: :true)
+    @bid = @auction.bids.sort { |bid| bid.bid_quote }
+    @bids = @auction.bids
+    @winner = @bids.where(winning_bid: :true)
     @winner = @winner[0]
   end
 
