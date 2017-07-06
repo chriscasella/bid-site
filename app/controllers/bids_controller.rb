@@ -47,6 +47,7 @@ class BidsController < ApplicationController
     @bid.update(:winning_bid => true)
     flash[:notice] = "Winning Bid Selected"
     UserMailer.winning_bid_selected(@auction, @bid).deliver_now
+    UserMailer.winning_bid_selector(@auction, @bid).deliver_now
     redirect_to auction_path(@auction)
   end
 
