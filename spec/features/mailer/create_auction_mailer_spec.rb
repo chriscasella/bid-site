@@ -2,11 +2,7 @@ feature "User recieves mail upon auction creation" do
   let(:user) do
     FactoryGirl.create(:user)
   end
-  before(:each)do
-    ActionMailer::Base.delivery_method = :test
-    ActionMailer::Base.perform_deliveries = true
-    ActionMailer::Base.deliveries = []
-  end
+
 scenario "review a product" do
 
   sign_in_as(user)
