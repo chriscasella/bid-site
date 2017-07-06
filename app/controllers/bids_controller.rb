@@ -22,6 +22,7 @@ class BidsController < ApplicationController
 
     if @bid.save
       flash[:notice] = "Bid Submitted Successfully"
+      UserMailer.new_bid(@auction, @bid).deliver_now
       redirect_to auction_path(@auction)
     else
       flash[:notice] = @bid.errors.full_messages.to_sentence
