@@ -10,6 +10,9 @@ $base-deepblue: #193441;
   color: $base-cream;
   padding-left: 20px;
   padding-right:  20px;
+  a {
+    padding: 10px;
+  }
   .nav-logo {
     font-family: "Ubuntu", sans-serif;
     letter-spacing: -.1em;
@@ -20,41 +23,28 @@ $base-deepblue: #193441;
   margin-top: 10px;
 }
 
-.call-out{
-}
+//Bid Show Page
 
-#bid-show {
+.indexshow{
   text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.bidshow {
+  text-align: center;
+  position: relative;
 }
 // Auction Index
 
 .index-bottom-dividers {
-   
+
   margin-left: fill;
   margin-right: 100px;
 }
 
 .index-body {
   padding-left: 115px;
-  h2 {
-    font-family: "Ubuntu", sans-serif;
-    color: red;
-  }
 }
-
-.right-divider {
-  h2 {
-    text-align: center;
-  }
-  background-color: $base-blue;
-}
-.left-divider {
-  h2 {
-    text-align: center;
-  }
-  background-color: $base-teal
-}
-
 .index-body {
   h2 {
     text-align: center;
@@ -66,7 +56,50 @@ $base-deepblue: #193441;
   text-align: center;
   font-family: 'Ubuntu', sans-serif;
 }
+//Auction Index Bottom Bar
+.right-divider {
+  h2 {
+    text-align: center;
+  }
+  background-color: $base-blue;
+  width: 50%;
+}
+.left-divider {
+  h2 {
+    text-align: center;
+  }
+  background-color: $base-teal
+}
 
+// Sign In
+.signin {
+  padding: 100px;
+  background-image: linear-gradient( -180deg, $base-cream, $base-white 70%);
+}
+
+//New bid
+
+.newbid {
+padding-top: 100px;
+text-align: center;
+}
+//New User
+.newuser {
+  background-image: linear-gradient( -180deg, $base-cream, $base-white 70%);
+  h2{
+    text-align: center;
+  }
+  hr{
+     border:none;
+     height: 20px;
+     width: 90%;
+     height: 50px;
+     margin-top: 0;
+     border-bottom: 1px solid #1f1209;
+     box-shadow: 0 20px 20px -20px #333;
+     margin: -50px auto 10px;
+  }
+}
 // Flash
 .flash {
   padding: 10px 10px 10px 10px;
@@ -82,7 +115,18 @@ $base-deepblue: #193441;
     from {background-color: #91AA9D;}
     to {background-color: #3E606F;}
 }
-
+//Header
+hr{
+  border:none;
+ height: 20px;
+ width: 90%;
+ height: 50px;
+ margin-top: 0;
+ border-bottom: 1px solid #1f1209;
+ box-shadow: 0 10px 10px -10px #333;
+ margin: -50px auto 10px;
+}
+//Body
 body{
   font-family: 'Ubuntu', sans-serif;
   background-color: $base-white;
