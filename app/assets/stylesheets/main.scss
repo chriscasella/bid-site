@@ -10,6 +10,9 @@ $base-deepblue: #193441;
   color: $base-cream;
   padding-left: 20px;
   padding-right:  20px;
+  a {
+    padding: 10px;
+  }
   .nav-logo {
     font-family: "Ubuntu", sans-serif;
     letter-spacing: -.1em;
@@ -29,7 +32,7 @@ $base-deepblue: #193441;
 // Auction Index
 
 .index-bottom-dividers {
-   
+
   margin-left: fill;
   margin-right: 100px;
 }
