@@ -48,12 +48,16 @@ $base-deepblue: #193441;
   h2 {
     text-align: center;
   }
-
 }
 
 #auction-index {
   text-align: center;
   font-family: 'Ubuntu', sans-serif;
+}
+
+.user-auctions{
+  text-align: center;
+   background: linear-gradient( -180deg, $base-cream, $base-white 70%);
 }
 //Auction Index Bottom Bar
 .right-divider {
@@ -61,7 +65,7 @@ $base-deepblue: #193441;
     text-align: center;
   }
   background-color: $base-blue;
-  width: 50%;
+
 }
 .left-divider {
   h2 {

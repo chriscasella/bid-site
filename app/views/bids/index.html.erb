@@ -4,13 +4,12 @@
       <ul>
       <% if !@bid.empty? %>
         <% if @winner %>
-          <h2> Winning Quote: $<%= @winner.bid_quote %> </h2>
+          <h2> Winning Quote: $<%= number_with_delimiter(@winner.bid_quote, :delimiter => ',') %> </h2>
           An Email has been sent to <%= current_user.email %> to contact winning party
         <% else %>
           <% @bid.each do |bid| %>
-              <h4> Quote Price: <%= bid.bid_quote %> </h4>
+              <h4> Quote Price: $<%= number_with_delimiter(bid.bid_quote, :delimiter => ',') %> </h4>
               <%= button_to "Select Winner", auction_bid_select_winner_path(@auction, bid.id), method: :put, class: "button alert" %>
-              <hr>
             <% end %>
           <% end %>
       <% else %>
