@@ -1,4 +1,4 @@
-feature "User recieves mail upon auction creation" do
+feature "User recieves email upon bid submittal" do
   let(:user) do
     FactoryGirl.create(:user)
   end

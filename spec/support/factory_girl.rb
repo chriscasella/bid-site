@@ -30,4 +30,8 @@ FactoryGirl.define do
     auction_close_date Time.now
     description 'this is a test!'
   end
+
+  factory :bid do
+    bid_quote 30000
+  end
 end

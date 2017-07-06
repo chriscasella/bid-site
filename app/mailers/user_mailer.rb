@@ -16,4 +16,13 @@ class UserMailer < ApplicationMailer
     subject: "Your bid has been submitted!"
     )
   end
+
+  def winning_bid_selected(auction, bid)
+    @auction = auction
+    @bid = bid
+    mail(
+    to: bid.user.email,
+    subject: "You're bid won"
+    )
+  end
 end
