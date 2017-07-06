@@ -1,27 +1,31 @@
-<div class="callout" >
-  <div class="row">
-    <div class="small-3 small-centered columns">
+<div class="callout">
+  <div class="row bidshow">
+    <div class="small-10 small-centered columns">
       <h3>  <%= @auction.name %> </h3>
     </div>
-    <div class="small-10 columns">
+    <div class="small-10 columns small-centered indexshow">
       <hr>
       <h3> Location: <%= @auction.location %> </h3>
     </div>
-    <div class="small-10 columns">
+    <div class="small-10 columns small-centered indexshow">
       <h4> Description: <%= @auction.description %> </h4>
     </div>
+
     <% if !@auction.workforce_size.nil? %>
-    <div class="small-10 columns">
+    <div class="small-10 columns small-centered indexshow">
       <h4> Workforce Size: <%= @auction.workforce_size %> </h4>
     </div>
     <% end %>
-    <div class="small-10 columns">
+    <div class="callout">
+
+    <div class="small-6 columns small-centered indexshow">
       <h4>  Auction Opened: <%= @auction.auction_start_date %> </h4>
     </div>
-    <div class="small-10 columns">
+    <div class="small-6 columns small-centered indexshow">
       <h4> Auction Close: <%= @auction.auction_close_date %> </h4>
     </div>
-    <div class="small-7 columns">
+    </div>
+    <div class="small-10 small-centered columns">
       <br>
     <% if current_user == @auction.user %>
       <%= link_to "View Bids", auction_bids_path(@auction), class: "button round"%>
