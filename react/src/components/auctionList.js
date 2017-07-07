@@ -69,11 +69,6 @@ handleClick(event){
        }
    );
 
-   let previousClass = "hollow button"
-    let nextClass = "hollow button"
-    let previous = "⇦"
-    let next = "⇨"
-
    if (indexOfFirstAuction < 0 ) {
      currentAuctions = filtered.slice(0, 10);
    } else {
@@ -114,13 +109,29 @@ handleClick(event){
 
     return (
       <div>
-        <input
-       placeholder="Search"
-       type="text"
-       value={this.state.search}
-       onChange={this.updateSearch}
-       className="searchBar"
-       />
+        <div className="row">
+            <input
+           placeholder="Type in auction title or location to start"
+           type="text"
+           value={this.state.search}
+           onChange={this.updateSearch}
+           className="searchBar"
+           />
+        </div>
+      <div className="row">
+       <div className="small-4 columns header-left">
+         <h4>Name</h4>
+       </div>
+       <div className="small-4 columns header-center">
+         <h4>Location</h4>
+       </div>
+       <div className="small-4 columns header-right">
+         <h4>Close Date</h4>
+       </div>
+     </div>
+     <br>
+
+     </br>
        <div className="row">
            {finalAuctions}
        </div>
