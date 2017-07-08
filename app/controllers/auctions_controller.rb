@@ -21,7 +21,13 @@ class AuctionsController < ApplicationController
   end
 
   def index
-    @auctions = Auction.all
+    if user_session.nil?
+      @auctions = Auction.all
+      @message = "All Auctions"
+    elsif params[:user_id] == current_user
+      @auctions = current_user.auctions
+      @message = "Auctions for #{current_user.name}"
+    end
   end
 
   def show

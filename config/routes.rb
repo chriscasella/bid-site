@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
-
+  resources :users, only: [] do
+    resources :auctions, only: [:index]
+  end
 
 end
