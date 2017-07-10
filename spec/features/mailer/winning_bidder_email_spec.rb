@@ -1,3 +1,5 @@
+require "rails_helper"
+
 feature "User recieves mail upon winning auction" do
   let(:auctioneer) do
     FactoryGirl.create(:user)
@@ -23,6 +25,7 @@ xscenario "winning bidder recieves email" do
 
   sign_in_as(auctioneer)
   visit auction_bids_path(auction)
+  save_and_open_page
   click_button "Select Winner"
 
   expect(ActionMailer::Base.deliveries.count).to eq(1)

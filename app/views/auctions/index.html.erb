@@ -5,6 +5,13 @@
     <div class="row">
       <div class="small-2 small-centered">
       <%= link_to "Create Auction", new_auction_path, class: "button secondary" %>
+        <div>
+          <% if @auctions %>
+            <% @auctions.each do |auction| %>
+              <%= auction.name %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
     <% end %>
