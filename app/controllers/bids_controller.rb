@@ -49,7 +49,7 @@ class BidsController < ApplicationController
     flash[:notice] = "Winning Bid Selected"
     UserMailer.winning_bid_selected(@auction, @bid).deliver_now
     UserMailer.winning_bid_selector(@auction, @bid).deliver_now
-    redirect_to auction_path(@auction)
+    redirect_to auction_bids_path(@auction)
   end
 
   private
