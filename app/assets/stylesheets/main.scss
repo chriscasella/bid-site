@@ -3,6 +3,7 @@ $base-cream: #D1DBBD;
 $base-teal: #91AA9D;
 $base-blue: #3E606F;
 $base-deepblue: #193441;
+$accent-blue: #3D636F;
 
 // Navbar
 .top-bar {
@@ -32,6 +33,7 @@ $base-deepblue: #193441;
 }
 .bidshow {
   text-align: center;
+  position: center;
 }
 // Auction Index
 
@@ -41,6 +43,28 @@ $base-deepblue: #193441;
   margin-right: 100px;
 }
 
+.auction-name {
+  text-align: left;
+}
+.auction-location {
+  text-align: left;
+}
+
+.co-index {
+  border-style: none;
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+  &:hover{
+    background-color: $base-cream;
+  }
+}
+
+.co-index:nth-of-type(odd) {
+  background: #e0e0e0;
+  box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1);
+  &:hover{
+    background-color: $base-cream;
+  }
+}
 .index-body {
   padding-left: 115px;
 }
@@ -55,23 +79,45 @@ $base-deepblue: #193441;
   font-family: 'Ubuntu', sans-serif;
 }
 
-.user-auctions{
+.user-auctions {
   text-align: center;
    background: linear-gradient( -180deg, $base-cream, $base-white 70%);
 }
+
+.header-center {
+  color: grey;
+  text-align: center;
+  position: relative;
+}
+.header-right{
+  color: grey;
+  text-align: center;
+}
+
+.header-left{
+  color: grey;
+  text-align: center;
+  padding-right: 100px;
+}
+
+.close-date{
+  text-align: left;
+  padding-left: 20px;
+}
+
 //Auction Index Bottom Bar
 .right-divider {
   h2 {
     text-align: center;
   }
-  background-color: $base-blue;
+  background-color: $accent-blue;
 
 }
 .left-divider {
   h2 {
     text-align: center;
   }
-  background-color: $base-teal
+  background-color: $accent-blue
 }
 
 // Sign In
