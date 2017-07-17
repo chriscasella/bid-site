@@ -16,6 +16,7 @@ Heroku link: https://open-bid.herokuapp.com/
   * Post an anonymous auction with name, description, location, workforce size needed, and determine the length of the auction's posting
   * Search for RFPs by name or location
   * Receive email notifications
+  * Post or share favorite auctions via Twitter, Google+, LinkedIn, Facebook, or Email
 
 * Technologies Used
   * Ruby version 2.3.3 (Rails framework)
