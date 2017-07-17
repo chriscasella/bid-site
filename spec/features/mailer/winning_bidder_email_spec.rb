@@ -17,7 +17,7 @@ feature "User recieves mail upon winning auction" do
     Bid.create(
     bid_quote: 4300,
     user: bidder,
-    auction: auction
+    auction_id: auction.id
     )
   end
 
