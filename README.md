@@ -4,27 +4,27 @@
 ![Code Climate](https://codeclimate.com/github/chriscasella/bid-site.png)
 [![Coverage Status](https://coveralls.io/repos/github/chriscasella/bid-site/badge.svg?branch=master)](https://coveralls.io/github/chriscasella/bid-site?branch=master)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+OpenBid is an anonymous bid site for contractors searching for Request for Proposals (RFPs). The scope of OpenBid is to prevent bias or discrimination in the bid selection process. Users can sign up, create bids or auctions anonymously without ever exchanging information, until an auctioneer picks a winning bid. Then confirmation emails are sent to each party stating the contact information for both.
 
-Things you may want to cover:
+Created by: Chris Casella
 
-* Ruby version
+Heroku link: https://open-bid.herokuapp.com/
 
-* System dependencies
+* Features
+  * User sign up and sign in
+  * Post an anonymous bid with bid quote
+  * Post an anonymous auction with name, description, location, workforce size needed, and determine the length of the auction's posting
+  * Search for RFPs by name or location
+  * Receive email notifications
+  * Post or share favorite auctions via Twitter, Google+, LinkedIn, Facebook, or Email
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-This is my project!
+* Technologies Used
+  * Ruby version 2.3.3 (Rails framework)
+  * React.js
+  * Ruby on Rails 5.1.1
+  * Foundation for styling
+  * Devise for user interaction
+  * ActiveRecord for database maintenance
+  * RSpec/Capybara for testing suite
+  * Github for collaboration
+  * Heroku for deployment

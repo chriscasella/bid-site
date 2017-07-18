@@ -27,7 +27,7 @@ FactoryGirl.define do
     project_length '2 months'
     workforce_size 30
     auction_start_date Time.now
-    auction_close_date Time.now
+    auction_close_date Time.now + 7.day
     description 'this is a test!'
   end
 
